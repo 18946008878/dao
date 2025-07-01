@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>破天一剑 - 星际武侠传</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 游戏加载画面 -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1 class="game-title">破天一剑</h1>
+            <p class="game-subtitle">星际武侠传</p>
+            <div class="loading-spinner"></div>
+            <p class="loading-text">正在加载游戏...</p>
+        </div>
+    </div>
+
+    <!-- 主菜单 -->
+    <div id="main-menu" class="screen hidden">
+        <div class="menu-background">
+            <h1 class="game-title">破天一剑</h1>
+            <p class="game-subtitle">星际武侠传</p>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="startNewGame()">开始游戏</button>
+                <button class="menu-btn" onclick="loadGame()">继续游戏</button>
+                <button class="menu-btn" onclick="showSettings()">游戏设置</button>
+                <button class="menu-btn" onclick="showAbout()">关于游戏</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 角色创建界面 -->
+    <div id="character-creation" class="screen hidden">
+        <div class="creation-container">
+            <h2>选择你的命运</h2>
+            <div class="character-grid">
+                <div class="character-card" data-character="yijian">
+                    <img src="images/characters/yijian.jpg" alt="一剑" onerror="this.style.display='none'">
+                    <h3>一剑</h3>
+                    <p class="character-type">近战输出</p>
+                    <p class="character-desc">掌握乾光神功，攻击力无出其右，速攻绝技震慑四方。</p>
+                    <div class="character-attrs">
+                        <span>体质: 12</span>
+                        <span>敏捷: 9</span>
+                        <span>智慧: 9</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="xiuya">
+                    <img src="images/characters/xiuya.jpg" alt="秀雅" onerror="this.style.display='none'">
+                    <h3>秀雅</h3>
+                    <p class="character-type">远程输出</p>
+                    <p class="character-desc">离火神功炉火纯青，弓箭如流星，复活绝技救死扶伤。</p>
+                    <div class="character-attrs">
+                        <span>体质: 9</span>
+                        <span>敏捷: 12</span>
+                        <span>智慧: 9</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="murong">
+                    <img src="images/characters/murong.jpg" alt="慕容指路" onerror="this.style.display='none'">
+                    <h3>慕容指路</h3>
+                    <p class="character-type">灵活型</p>
+                    <p class="character-desc">巽风神功飘逸灵动，身法如风，炼化绝技增强武器。</p>
+                    <div class="character-attrs">
+                        <span>体质: 9</span>
+                        <span>敏捷: 10</span>
+                        <span>智慧: 11</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="yunting">
+                    <img src="images/characters/yunting.jpg" alt="云婷" onerror="this.style.display='none'">
+                    <h3>云婷</h3>
+                    <p class="character-type">内功型</p>
+                    <p class="character-desc">坎冰神功刚柔并济，神行绝技瞬息千里，冰莲觉醒威力无穷。</p>
+                    <div class="character-attrs">
+                        <span>体质: 10</span>
+                        <span>敏捷: 11</span>
+                        <span>智慧: 9</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="nangong">
+                    <img src="images/characters/nangong.jpg" alt="南宫不败" onerror="this.style.display='none'">
+                    <h3>南宫不败</h3>
+                    <p class="character-type">防御型</p>
+                    <p class="character-desc">坤地神功气势磅礴，金钟绝技坚不可摧，义盖云天的铁男儿。</p>
+                    <div class="character-attrs">
+                        <span>体质: 11</span>
+                        <span>敏捷: 9</span>
+                        <span>智慧: 10</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="jiaohong">
+                    <img src="images/characters/jiaohong.jpg" alt="娇红" onerror="this.style.display='none'">
+                    <h3>娇红</h3>
+                    <p class="character-type">毒系型</p>
+                    <p class="character-desc">兑毒神功防不胜防，吸星绝技吸取生命，至情至性的奇女子。</p>
+                    <div class="character-attrs">
+                        <span>体质: 9</span>
+                        <span>敏捷: 9</span>
+                        <span>智慧: 12</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="wushen">
+                    <img src="images/characters/wushen.jpg" alt="悟神" onerror="this.style.display='none'">
+                    <h3>悟神</h3>
+                    <p class="character-type">召唤型</p>
+                    <p class="character-desc">艮暗神功变幻莫测，召唤绝技御兽如神，大智若愚的老顽童。</p>
+                    <div class="character-attrs">
+                        <span>体质: 10</span>
+                        <span>敏捷: 9</span>
+                        <span>智慧: 11</span>
+                    </div>
+                </div>
+                <div class="character-card" data-character="muzhi">
+                    <img src="images/characters/muzhi.jpg" alt="拇指" onerror="this.style.display='none'">
+                    <h3>拇指</h3>
+                    <p class="character-type">治疗型</p>
+                    <p class="character-desc">震雷神功有板有眼，回复绝技救死扶伤，天真浪漫的小丫头。</p>
+                    <div class="character-attrs">
+                        <span>体质: 11</span>
+                        <span>敏捷: 10</span>
+                        <span>智慧: 9</span>
+                    </div>
+                </div>
+            </div>
+            <div class="creation-actions">
+                <button class="btn-secondary" onclick="backToMenu()">返回</button>
+                <button class="btn-primary" onclick="confirmCharacter()" disabled>确认选择</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 游戏主界面 -->
+    <div id="game-screen" class="screen hidden">
+        <div class="game-container">
+            <!-- 顶部状态栏 -->
+            <div class="status-bar">
+                <div class="character-info">
+                    <span id="character-name">玩家</span>
+                    <span id="character-level">Lv.1</span>
+                </div>
+                <div class="resources">
+                    <span class="resource">
+                        <span class="resource-icon hp">❤</span>
+                        <span id="hp-text">100/100</span>
+                    </span>
+                    <span class="resource">
+                        <span class="resource-icon mp">✦</span>
+                        <span id="mp-text">50/50</span>
+                    </span>
+                    <span class="resource">
+                        <span class="resource-icon gold">💰</span>
+                        <span id="gold-text">100</span>
+                    </span>
+                </div>
+                <button class="menu-toggle" onclick="toggleGameMenu()">≡</button>
+            </div>
+
+            <!-- 主要内容区域 -->
+            <div class="main-content">
+                <!-- 游戏文本显示区 -->
+                <div class="game-text-area">
+                    <div id="game-text" class="game-text">
+                        欢迎来到破天一剑的世界...
+                    </div>
+                </div>
+
+                <!-- 快速操作按钮 -->
+                <div class="quick-actions">
+                    <button class="action-btn" onclick="explore()">探索</button>
+                    <button class="action-btn" onclick="rest()">休息</button>
+                    <button class="action-btn" onclick="openInventory()">背包</button>
+                    <button class="action-btn" onclick="openCharacter()">人物</button>
+                </div>
+
+                <!-- 选择按钮区域 -->
+                <div id="choice-buttons" class="choice-buttons">
+                    <!-- 动态生成的选择按钮 -->
+                </div>
+            </div>
+
+            <!-- 底部导航 -->
+            <div class="bottom-nav">
+                <button class="nav-btn active" onclick="switchTab('adventure')">
+                    <span class="nav-icon">🗺️</span>
+                    <span class="nav-text">冒险</span>
+                </button>
+                <button class="nav-btn" onclick="switchTab('battle')">
+                    <span class="nav-icon">⚔️</span>
+                    <span class="nav-text">战斗</span>
+                </button>
+                <button class="nav-btn" onclick="switchTab('inventory')">
+                    <span class="nav-icon">🎒</span>
+                    <span class="nav-text">背包</span>
+                </button>
+                <button class="nav-btn" onclick="switchTab('character')">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">人物</span>
+                </button>
+                <button class="nav-btn" onclick="switchTab('more')">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">更多</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 各种弹窗模态框 -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">标题</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                内容
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript文件 -->
+    <script src="js/game-data.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/battle.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/story.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
